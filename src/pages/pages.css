@@ -4,6 +4,11 @@
   margin: auto;
 }
 
+.chat-container {
+  height: 90%;
+  overflow: auto;
+}
+
 .election {
   height: 120px;
   background-color: black;

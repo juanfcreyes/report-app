@@ -2,16 +2,20 @@ import { useState, useContext, useEffect } from "react";
 import { SocketContext } from "../context/socket-context";
 import "./pages.css";
 
-const id = new Date().getTime().toString + Math.floor(Math.random() * 999999)
+const id = new Date().getTime().toString + Math.floor(Math.random() * 999999);
 
 export const Chat = () => {
-	const [messages, setMessages] = useState([]);
 
+	const [messages, setMessages] = useState([]);
 	const { emit, on } = useContext(SocketContext);
 	const [message, setMesage] = useState("");
 
-
   useEffect(() => {
+		const chatContainer = document.getElementById("chat_contianer");
+		chatContainer.scrollTop = chatContainer.scrollHeight;
+	}, [messages]);
+
+	useEffect(() => {
 		const fetchFunction = async () => {
 			const response = await fetch("https://report-socket-server.herokuapp.com/messages/");
 			const payload = await response.json();
@@ -19,7 +23,6 @@ export const Chat = () => {
 		};
 		fetchFunction();
 	}, []);
-
 
 	useEffect(() => {
 		on("broadcast-message", (payload) => {
@@ -46,10 +49,14 @@ export const Chat = () => {
 		<div>
 			<div className='card card-size'>
 				<div className='card-header'>WebSocket chat</div>
-				<div className='card-body'>
+				<div id='chat_contianer' className='card-body chat-container'>
 					{messages.map((item, index) => (
-						<div key={index} className="d-flex justify-content-end my-2">
-							<span className={`badge rounded-pill ${id === item.id ? 'bg-dark' : 'bg-secondary'} `} >
+						<div key={index} className='d-flex justify-content-end my-2'>
+							<span
+								className={`badge rounded-pill ${
+									id === item.id ? "bg-dark" : "bg-secondary"
+								} `}
+							>
 								{item.message}
 							</span>
 						</div>
