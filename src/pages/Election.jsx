@@ -15,7 +15,7 @@ export const Election = () => {
 
 	useEffect(() => {
 		const fetchFunction = async () => {
-			const response = await fetch(" http://localhost:4000/elections/");
+			const response = await fetch("https://report-socket-server.herokuapp.com/elections/");
 			const payload = await response.json();
 			setData(payload);
 		};

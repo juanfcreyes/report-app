@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import io from "socket.io-client";
-const socket = io("ws://report-socket-server.herokuapp.com");
+
+const socket = io("wss://report-socket-server.herokuapp.com");
 const disconnectFunction = () => socket.disconnect();
 const connectFunction = () => socket.connect();
 const emitFunction = (event, value) => socket.emit(event, value);

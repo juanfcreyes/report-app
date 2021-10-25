@@ -13,7 +13,7 @@ export const Chat = () => {
 
   useEffect(() => {
 		const fetchFunction = async () => {
-			const response = await fetch(" http://localhost:4000/messages/");
+			const response = await fetch("https://report-socket-server.herokuapp.com/messages/");
 			const payload = await response.json();
 			setMesage(payload);
 		};
