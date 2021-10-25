@@ -48,8 +48,8 @@ export const Chat = () => {
 				<div className='card-header'>WebSocket chat</div>
 				<div className='card-body'>
 					{messages.map((item, index) => (
-						<div className="d-flex justify-content-end my-2">
-							<span key={index} className={`badge rounded-pill ${id === item.id ? 'bg-dark' : 'bg-secondary'} `} >
+						<div key={index} className="d-flex justify-content-end my-2">
+							<span className={`badge rounded-pill ${id === item.id ? 'bg-dark' : 'bg-secondary'} `} >
 								{item.message}
 							</span>
 						</div>
