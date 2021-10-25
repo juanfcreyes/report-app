@@ -15,7 +15,7 @@ export const Chat = () => {
 		const fetchFunction = async () => {
 			const response = await fetch("https://report-socket-server.herokuapp.com/messages/");
 			const payload = await response.json();
-			setMesage(payload);
+			setMessages(payload);
 		};
 		fetchFunction();
 	}, []);
