@@ -23,9 +23,9 @@ export const Chat = () => {
 
 	useEffect(() => {
 		on("broadcast-message", (payload) => {
-			setMessages([...messages, payload]);
+			setMessages(payload);
 		});
-	}, [on, messages]);
+	}, [on]);
 
 	const sendMessage = () => {
 		emit("chat-message", { message, id });
