@@ -1,0 +1,21 @@
+.card-size {
+  height: 500px;
+  width: 750px;
+  margin: auto;
+}
+
+.election {
+  height: 120px;
+  background-color: black;
+  color: white;
+}
+
+.bg {
+  width: 100%;
+  background-color: gray;
+  height: 120px;
+}
+
+.nm-50 {
+  margin-top: -100px;
+}
